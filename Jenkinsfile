@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Remove Old Clone') {
+            steps {
+                // Remove the existing clone
+                deleteDir()
+            }
+        }
         stage('Clone') {
             steps {
                 // Cloning the GitHub repository
