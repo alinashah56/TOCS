@@ -2,9 +2,16 @@ pipeline {
     agent any
 
     stages {
+        stage('Clone') {
+            steps {
+                // Cloning the GitHub repository
+                checkout([$class: 'GitSCM', branches: [[name: 'alinashah56/******']], userRemoteConfigs: [[url: 'https://github.com/alinashah56/jkhk.git']]])
+            }
+        }
         stage('Build') {
             steps {
-                bat 'app.js'
+                // Your build steps here
+                bat 'app.js' // Example build step
             }
         }
     }
