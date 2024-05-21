@@ -1,11 +1,27 @@
 pipeline {
     agent any
-
+    
     stages {
         stage('Build') {
             steps {
-                bat 'app.js'
+                echo 'Building...'
             }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+    }
+    
+    post {
+        always {
+            echo "Done!"
         }
     }
 }
